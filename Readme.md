@@ -1,6 +1,6 @@
 <h1>Tchatback</h1>
 <hr>
-<h2>Description</h2>
+<h2>Déscription</h2>
 Ce projet consiste à être le back-end d'une application de chat. Le but du projet est l'implementation du clean architecture avec nodejs.
 <hr>
 
@@ -14,7 +14,7 @@ Ouvrer un terminal,
     <strong>cd tchatback</strong> #Entrer dans le dossier que vous avez créer
     </li>
     <li>
-    <strong>npm install</strong> #installer les dependences utils
+    <strong>npm install</strong> #installer les dépendences utils
     </li>
     <li>
     <strong>node index</strong> #Pour executer l'application en production
