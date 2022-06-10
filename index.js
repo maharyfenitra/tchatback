@@ -4,7 +4,7 @@ const cors = require('cors');
 const app = express();
 const UserModel = require("./models/users.js")
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/tchat");
+mongoose.connect("process.env.URL_DB");
 const database = mongoose.connection;
 
 database.on('error', (error) => {
