@@ -15,21 +15,12 @@ database.once('connected', () => {
     console.log('Database Connected')
 })
 
-
-
-
 const { router } = require("./router.js");
 const { usersRouter } = require("./routes/users.js")
 const { messagesRouter } = require("./routes/messages.js")
 
-
-
-
 app.use(express.json());
 app.use(cors());
-
-
-app.use("/API", router);
 app.use("/users", usersRouter);
 app.use("/messages", messagesRouter);
 const PORT = process.env.PORT || 5003;
