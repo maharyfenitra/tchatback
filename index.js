@@ -15,7 +15,6 @@ database.once('connected', () => {
     console.log('Database Connected')
 })
 
-const { router } = require("./router.js");
 const { usersRouter } = require("./routes/users.js")
 const { messagesRouter } = require("./routes/messages.js")
 
