@@ -26,4 +26,4 @@ const dataSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('tchat', dataSchema)
+module.exports = mongoose.model('messages', dataSchema)

@@ -20,15 +20,19 @@ database.once('connected', () => {
 
 const { router } = require("./router.js");
 const { usersRouter } = require("./routes/users.js")
+const { messagesRouter } = require("./routes/messages.js")
 
 
 
 
 app.use(express.json());
 app.use(cors());
+app.use((req, res, next) => { console.log("This is a middleware!"); next() })
+app.use((req, res, next) => { console.log("This is a middleware 2!"); next() })
 
 app.use("/API", router);
 app.use("/users", usersRouter);
+app.use("/messages", messagesRouter);
 const PORT = process.env.PORT || 5003;
 app.listen(PORT, () => {
 
