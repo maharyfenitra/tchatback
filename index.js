@@ -1,8 +1,10 @@
 require('dotenv').config();
+require("./db/config.js")
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const UserModel = require("./models/users.js")
+
+/*
 const mongoose = require('mongoose');
 mongoose.connect(process.env.URL_DB);
 const database = mongoose.connection;
@@ -13,7 +15,7 @@ database.on('error', (error) => {
 
 database.once('connected', () => {
     console.log('Database Connected')
-})
+})*/
 
 const { usersRouter } = require("./routes/users.js")
 const { messagesRouter } = require("./routes/messages.js")
