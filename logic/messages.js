@@ -9,13 +9,31 @@ const newMessage = async (req, res) => {
     }
 }
 const updateMessage = async (req,res)=>{
-
+    try{
+        const message = await MessagesModel.findOne({_id:req.body.message_id});
+        message.content = req.body.content;
+        message.save();
+        res.status(200).json({message:message})
+    }catch (error){
+        res.status(500).json({message:error.message})
+    }
+}
+const updateStatus = async (req,res,status) =>{
+    try{
+        const message = await MessagesModel.findOne({_id:req.body.message_id});
+        message.status = status;
+        message.save();
+        res.status(200).json({message:message})
+    }catch (error){
+        res.status(500).json({message:error.message})
+    }
 }
 const readMessage = async (req,res)=>{
-    
+    updateStatus(req,res,2)
 }
 const deleteMessage = async (req,res)=>{
-
+    updateStatus(req,res,0)
 }
 
-module.exports ={newMessage,updateMessage,deleteMessage}
+
+module.exports ={newMessage,updateMessage,deleteMessage,readMessage}
