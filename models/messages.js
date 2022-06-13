@@ -16,6 +16,10 @@ const dataSchema = new mongoose.Schema({
     content: {
         type: String
     },
+    status:{
+        type:Number,
+        default: 1
+    },
     createDAte: {
         type: Date,
         default: () => Date.now()
