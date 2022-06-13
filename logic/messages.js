@@ -8,6 +8,14 @@ const newMessage = async (req, res) => {
         res.status(500).json({ message: error.message })
     }
 }
+const getMessages = async (req,res)=>{
+    try {
+        const messages = await MessagesModel.find();
+        res.json({ status: 200, messages })
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+}
 const updateMessage = async (req,res)=>{
     try{
         const message = await MessagesModel.findOne({_id:req.body.message_id});
@@ -36,4 +44,5 @@ const deleteMessage = async (req,res)=>{
 }
 
 
-module.exports ={newMessage,updateMessage,deleteMessage,readMessage}
+
+module.exports ={newMessage,updateMessage,deleteMessage,readMessage,getMessages}

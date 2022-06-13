@@ -10,6 +10,14 @@ const dataSchema = new mongoose.Schema({
 
         type: String
     },
+    firstname: {
+
+        type: String
+    },
+    mail: {
+
+        type: String
+    },
     password: {
         type: String
     },

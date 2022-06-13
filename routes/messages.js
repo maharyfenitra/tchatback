@@ -1,11 +1,13 @@
 const express = require('express');
 const { authentificationToken } = require("./function.js");
 const messagesRouter = express.Router();
-const {newMessage,updateMessage,deleteMessage,readMessage} = require("../logic/messages")
+const {newMessage,updateMessage,deleteMessage,readMessage,getMessages} = require("../logic/messages")
 
-messagesRouter.post('/newMessage', authentificationToken, newMessage)
-messagesRouter.post('/updateMessage', authentificationToken, updateMessage)
-messagesRouter.post('/deleteMessage', authentificationToken, deleteMessage)
-messagesRouter.post('/readMessage', authentificationToken, readMessage)
+messagesRouter.post('/newMessage', newMessage)
+messagesRouter.post('/updateMessage',updateMessage)
+messagesRouter.post('/deleteMessage', deleteMessage)
+messagesRouter.post('/readMessage', readMessage)
+messagesRouter.post('/getMessages', getMessages)
+
 
 module.exports = { messagesRouter };
