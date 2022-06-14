@@ -10,7 +10,9 @@ const newMessage = async (req, res) => {
 }
 const getMessages = async (req,res)=>{
     try {
-        const messages = await MessagesModel.find();
+        const messages = await MessagesModel.find({$or:[{sender_id: req.body._id_1,recipient_id:req.body._id_2},
+                                                        {sender_id: req.body._id_2,recipient_id:req.body._id_1}]});
+        
         res.json({ status: 200, messages })
     } catch (error) {
         res.status(500).json({ message: error.message })
