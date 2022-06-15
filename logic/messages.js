@@ -10,8 +10,8 @@ const newMessage = async (req, res) => {
 }
 const getMessages = async (req,res)=>{
     try {
-        const messages = await MessagesModel.find({$or:[{sender_id: req.body._id_1,recipient_id:req.body._id_2},
-                                                        {sender_id: req.body._id_2,recipient_id:req.body._id_1}]});
+        const messages = await MessagesModel.find({$or:[{sender_id: req.body._id_1,recipient_id:req.body._id_2,status:1},
+                                                        {sender_id: req.body._id_2,recipient_id:req.body._id_1,status:1}]});
         
         res.json({ status: 200, messages })
     } catch (error) {
@@ -42,6 +42,7 @@ const readMessage = async (req,res)=>{
     updateStatus(req,res,2)
 }
 const deleteMessage = async (req,res)=>{
+    console.log("delete")
     updateStatus(req,res,0)
 }
 
