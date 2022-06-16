@@ -26,6 +26,7 @@ const io = new Server(server, {
 io.on("connection",(socket)=>{
     console.log(`User Connected:${socket.id}`)
     socket.on("SEND_DATA", (data)=>{
+        console.log(data)
         socket.broadcast.emit("RECEIVE_DATA",data)
         
     })
